@@ -14,6 +14,16 @@ class HomeItemViewModel: NSObject {
     
     var amountDue : Int! = 0
     
+    var amountDueString: String {
+        if amountDue == 0 {
+            return "\(amountDue!)"
+        }else if amountDue > 0 {
+            return "+\(amountDue!)"
+        }else {
+            return "\(amountDue!)"
+        }
+    }
+    
     init(personInfo: PersonInfo) {
         self.personInfo = personInfo
     }

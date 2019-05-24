@@ -106,7 +106,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let itemViewModel = viewModel.getItemViewModel(indexPath:indexPath)
         cell?.textLabel?.text = itemViewModel.personInfo.personName
         
-        cell?.detailTextLabel?.text = "\(itemViewModel.amountDue!)"
+        cell?.detailTextLabel?.text = itemViewModel.amountDueString
+        if itemViewModel.amountDue! == 0 {
+            cell?.detailTextLabel?.textColor = .white
+        } else if itemViewModel.amountDue! > 0 {
+            cell?.detailTextLabel?.textColor = .green
+        }else {
+            cell?.detailTextLabel?.textColor = .red
+        }
         cell?.backgroundColor = viewModel.cellBackgroundColor(atIndexPath: indexPath)
 
         return cell!
