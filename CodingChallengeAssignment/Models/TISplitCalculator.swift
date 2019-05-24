@@ -110,6 +110,10 @@ class TISplitCalculator: NSObject {
                             delta = Int(abs(Int32(delta))) - amountLeft
                             eachPayment.person.amountDue =  (-amountLeft)
                             lenders.append(eachPayment.person)
+                        }else {
+                            eachPayment.person.amountDue =  delta
+                            delta = 0
+                            lenders.append(eachPayment.person)
                         }
                     }else {
                         continue
